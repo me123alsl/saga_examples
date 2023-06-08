@@ -12,13 +12,12 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
-import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 @Entity
+@Builder @AllArgsConstructor
 @Getter
-@Builder
 @RequiredArgsConstructor
-@Table(name = "orders")
+@Table(name = "ORDERS")
 public class Order {
 
   @Id

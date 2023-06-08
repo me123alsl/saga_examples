@@ -7,10 +7,13 @@ spring:
 
 kafka:
   bootstrap-servers: localhost:9092
-  topics:
-    order:
-      create: order.create
-      cancel: order.cancel
+  order:
+    create:
+      topic: order.create
+      groupId: order-create
+    cancel:
+      topic: order.cancel
+      groupId: order-cancel
 
   # Enable H2 Console
   h2:

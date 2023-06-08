@@ -2,6 +2,7 @@ version: "2"
 
 services:
   zookeeper:
+    container_name: zookeeper
     image: docker.io/bitnami/zookeeper:3.7
     hostname: zookeeper
     ports:
@@ -11,6 +12,7 @@ services:
     volumes:
       - ./zookeeper/bitnami/zookeeper:/bitnami/zookeeper
   kafka-0:
+    container_name: kafka-0
     image: docker.io/bitnami/kafka:2.8.1
     hostname: kafka-0
     restart: on-failure
@@ -31,6 +33,7 @@ services:
     depends_on:
       - zookeeper
   kafka-1:
+    container_name: kafka-1
     image: docker.io/bitnami/kafka:2.8.1
     hostname: kafka-1
     restart: on-failure
@@ -51,6 +54,7 @@ services:
     depends_on:
       - zookeeper
   kafka-2:
+    container_name: kafka-2
     image: docker.io/bitnami/kafka:2.8.1
     hostname: kafka-2
     restart: on-failure

@@ -6,15 +6,15 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Component;
 
+@Slf4j
 @Component
 @RequiredArgsConstructor
-@Slf4j
 public class CreateOrderEventHandler {
 
   private final KafkaTemplate kafkaTemplate;
 
-  @Value("${kafka.topics.order.create}")
-  private final String createOrderTopic;
+  @Value("${kafka.order.create.topic}")
+  private String createOrderTopic;
 
   public void handle(CreateOrderEvent createOrderEvent) {
     log.info("Order Created: " + createOrderEvent.getOrderId());

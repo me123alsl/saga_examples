@@ -14,7 +14,7 @@ public class CanceledOrderEventHandler {
 
   private final OrderRepository orderRepository;
 
-  @KafkaListener(topics = "#{'${kafka.topics.order.cancel}'}")
+  @KafkaListener(topics = "#{'${kafka.order.cancel.topic}'}", groupId = "#{'${kafka.order.cancel.groupId}'}")
   public void handle(CancelOrderEvent cancelOrderEvent) {
     log.info("Order Canceled: " + cancelOrderEvent.getOrderId());
     cancelOrder(cancelOrderEvent.getOrderId());
